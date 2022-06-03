@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Data
 @NoArgsConstructor
@@ -24,15 +25,20 @@ public class Producto implements Serializable {
 	@Column(name="idProducto")
 	private Long idProducto;
 
+	@NotEmpty(message="No puede estar vacio")
+	@Size(min=4, max=50, message="Esta chiquito o muy grandote")
 	@Column(name="nombreProducto")
 	private String nombreProducto;
-	
+
+	@NotEmpty(message="No puede estar vacio")
 	@Column(name="descripcionProducto")
 	private String descripcionProducto;
-	
+
+	@NotNull(message="No puede estar vacio")
 	@Column(name="precioProducto")
 	private double precioProducto;
-	
+
+	@NotNull(message="No puede estar vacio")
 	@Column(name="existencia")
 	private int existencia;
 	

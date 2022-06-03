@@ -17,12 +17,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -37,15 +33,15 @@ public class Categoria implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idCategoria", nullable = false)
-	private long idCategoria;
+	private Long idCategoria;
 	
 	@NotEmpty(message="No puede estar vacio")
-	@Size(min=4, max=50, message="Esta chiquito o muy grandote amigo, vamos por unas quekas")
+	@Size(min=4, max=50, message="Esta chiquito o muy grandote")
 	@Column(name="nombreCategoria", length=50, nullable=false)	
 	private String nombreCategoria;
 	
 	@NotEmpty(message="No puede estar vacio")
-	@Size(min=4, max=50, message="Esta chiquito o muy grandote amigo, vamos por unas quekas")
+	@Size(min=4, max=50, message="Esta chiquito o muy grandote")
 	@NotBlank(message="Esta en blanco, aunque es lo mismo que vacio")
 	@Column(name="descripcionCategoria", length=100, nullable=false)		
 	private String descripcionCategoria;
