@@ -22,8 +22,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name="categoria")
 public class Categoria implements Serializable{
@@ -50,4 +48,39 @@ public class Categoria implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "idCategoria", cascade = CascadeType.REFRESH)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	private List<Producto> productos;
+
+	public Categoria() {
+	}
+
+	public Long getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(Long idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public String getNombreCategoria() {
+		return nombreCategoria;
+	}
+
+	public void setNombreCategoria(String nombreCategoria) {
+		this.nombreCategoria = nombreCategoria;
+	}
+
+	public String getDescripcionCategoria() {
+		return descripcionCategoria;
+	}
+
+	public void setDescripcionCategoria(String descripcionCategoria) {
+		this.descripcionCategoria = descripcionCategoria;
+	}
+
+	public List<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
 }

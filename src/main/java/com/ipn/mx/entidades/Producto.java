@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name="producto")
 public class Producto implements Serializable {
@@ -57,4 +55,63 @@ public class Producto implements Serializable {
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	@JoinColumn(name="idCategoria")
 	private Categoria idCategoria;
+
+	public Producto() {
+	}
+
+	public Long getIdProducto() {
+		return idProducto;
+	}
+
+	public void setIdProducto(Long idProducto) {
+		this.idProducto = idProducto;
+	}
+
+	public String getNombreProducto() {
+		return nombreProducto;
+	}
+
+	public void setNombreProducto(String nombreProducto) {
+		this.nombreProducto = nombreProducto;
+	}
+
+	public String getDescripcionProducto() {
+		return descripcionProducto;
+	}
+
+	public void setDescripcionProducto(String descripcionProducto) {
+		this.descripcionProducto = descripcionProducto;
+	}
+
+	public double getPrecioProducto() {
+		return precioProducto;
+	}
+
+	public void setPrecioProducto(double precioProducto) {
+		this.precioProducto = precioProducto;
+	}
+
+	public int getExistencia() {
+		return existencia;
+	}
+
+	public void setExistencia(int existencia) {
+		this.existencia = existencia;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Categoria getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(Categoria idCategoria) {
+		this.idCategoria = idCategoria;
+	}
 }
