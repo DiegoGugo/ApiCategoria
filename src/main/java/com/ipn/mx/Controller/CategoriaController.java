@@ -39,7 +39,7 @@ public class CategoriaController {
 
 		if(resultado.hasErrors()) {
 			List<String> errores = resultado.getFieldErrors().stream()
-					.map(err -> "error " + err.getField() + " "+ err.getDefaultMessage())
+					.map(err -> "error" + err.getField() + " "+ err.getDefaultMessage())
 					.collect(Collectors.toList());
 			response.put("errores", errores);
 
@@ -56,7 +56,7 @@ public class CategoriaController {
 		}
 
 		response.put("mensaje", "insertado satisfactoriamente");
-		response.put("categoria ", categoriaNueva);
+		response.put("categoria", categoriaNueva);
 		return new ResponseEntity<Map<String, Object>> (response, HttpStatus.CREATED); //codigo 201
 	}
 
@@ -77,7 +77,7 @@ public class CategoriaController {
 				"La categoria ID: ".concat(id.toString().concat("No exixte en la base de datos")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
-		response.put("Categoria", categoria);
+		response.put("categoria", categoria);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}
 
@@ -108,7 +108,7 @@ public class CategoriaController {
 			return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		respuesta.put("mensaje", "La categoria se actualizó satisfactoriamente");
-		respuesta.put("categoria ", categoriaAtualizada);
+		respuesta.put("categoria", categoriaAtualizada);
 
 		return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.CREATED);
 	}

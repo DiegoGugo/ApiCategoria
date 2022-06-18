@@ -47,7 +47,7 @@ public class Categoria implements Serializable{
 	private String descripcionCategoria;
 
 	@JsonIgnore
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "idCategoria", cascade = CascadeType.ALL)
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "idCategoria", cascade = CascadeType.REFRESH)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	private List<Producto> productos;
 }

@@ -67,7 +67,7 @@ public class ProductoController {
         }
 
         response.put("mensaje", "insertado satisfactoriamente");
-        response.put("categoria", productoNuevo);
+        response.put("prodcuto", productoNuevo);
         return new ResponseEntity<Map<String, Object>> (response, HttpStatus.CREATED); //codigo 201
     }
 
@@ -85,10 +85,10 @@ public class ProductoController {
 
         if(producto.isEmpty()){
             response.put("mensaje: ",
-                    "La categoria ID: ".concat(id.toString().concat("No exixte en la base de datos")));
+                    "El producto ID: ".concat(id.toString().concat("No exixte en la base de datos")));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
         }
-        response.put("Producto", producto);
+        response.put("producto", producto);
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
 
@@ -109,7 +109,7 @@ public class ProductoController {
             return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.BAD_REQUEST);
         }
         if(productoActual.isEmpty()){
-            respuesta.put("mensaje", "Error al actualizar la Categoria ".concat(id.toString()).concat("no existe la base de datos"));
+            respuesta.put("mensaje", "Error al actualizar el Prodcuto ".concat(id.toString()).concat("no existe la base de datos"));
             return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.NOT_FOUND);
         }
         try{
@@ -126,7 +126,7 @@ public class ProductoController {
             return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         respuesta.put("mensaje", "La categria se actualizó satisfactoriamente");
-        respuesta.put("categoria", productoAtualizado);
+        respuesta.put("producto", productoAtualizado);
 
         return new ResponseEntity<Map<String, Object>>(respuesta, HttpStatus.CREATED);
     }
